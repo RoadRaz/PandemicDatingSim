@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -10,9 +11,10 @@ public class DialogueManager : MonoBehaviour
     int currentTextIndex = 0;
 
     int currentTextStringIndex = 0;
-    string currentStringOutput = "";
     float writingDelay = 0.01f;
     float lastCharacterWrite = 0;
+
+    GameObject dialogue;
     string[] text =
     {
         "Hello! My Name is ----- and I'm looking forward to having a great time with you!",
@@ -21,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     };
     void Start()
     {
+        dialogue = GameObject.Find("DialogueText");
         currentDialogueState = DialogueState.Writing;
     }
 
@@ -39,7 +42,9 @@ public class DialogueManager : MonoBehaviour
                 //go to next text field (or next state)
                 currentTextIndex++;
                 currentTextStringIndex = 0;
-                currentStringOutput = "";
+                dialogue.GetComponent<Text>().text = "";
+                lastCharacterWrite = 0;
+                currentDialogueState = DialogueState.Writing;
             }
 
         }
@@ -49,7 +54,7 @@ public class DialogueManager : MonoBehaviour
             {
                 if (currentTextStringIndex < text[currentTextIndex].Length)
                 {
-                    currentStringOutput += text[currentTextIndex][currentTextStringIndex];
+                    dialogue.GetComponent<Text>().text += text[currentTextIndex][currentTextStringIndex];
                     currentTextStringIndex++;
                 }
                 else
@@ -61,7 +66,7 @@ public class DialogueManager : MonoBehaviour
         }
         if (currentDialogueState == DialogueState.Writing) 
         {
-            Debug.Log(currentStringOutput);
+            
         }
     }
 }
