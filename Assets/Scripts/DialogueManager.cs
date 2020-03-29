@@ -34,7 +34,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (currentDialogueState == DialogueState.Writing)
             {
-                //set dialogue to full current text
+                dialogue.GetComponent<Text>().text = text[currentTextIndex];
                 currentDialogueState = DialogueState.Done;
             }
             else if (currentDialogueState == DialogueState.Done) 
