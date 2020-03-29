@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     enum DialogueState {Off,Writing,Done }
     DialogueState currentDialogueState = DialogueState.Off;
-    int currentTextIndex = 0;
+    public int currentTextIndex = 0;
 
     int currentTextStringIndex = 0;
     float writingDelay = 0.01f;
@@ -19,7 +19,8 @@ public class DialogueManager : MonoBehaviour
     {
         "Hello! My Name is ----- and I'm looking forward to having a great time with you!",
         "I'm really into sports and social gatherings, but sadly due to the virus I can't do any of that...",
-        "So maybe we can talk and get to know each other better! As long as we remember to not get too close ;)"
+        "So maybe we can talk and get to know each other better! As long as we remember to not get too close ;)",
+        "What fun activities can we do in quarintine?"
     };
     void Start()
     {
@@ -30,7 +31,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return)) 
+        if (gameObject.GetComponent<ChoiceScript>().choiceCompleted) 
         {
             if (currentDialogueState == DialogueState.Writing)
             {
@@ -45,6 +46,9 @@ public class DialogueManager : MonoBehaviour
                 dialogue.GetComponent<Text>().text = "";
                 lastCharacterWrite = 0;
                 currentDialogueState = DialogueState.Writing;
+
+                
+                gameObject.GetComponent<ChoiceScript>().choiceCompleted = false;
             }
 
         }
