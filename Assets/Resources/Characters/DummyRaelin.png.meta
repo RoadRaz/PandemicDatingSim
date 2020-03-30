@@ -1,0 +1,631 @@
+fileFormatVersion: 2
+guid: 588b3c6c02a07724093d4ce2c2fbe2c6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1749215140685771453
+    second: DummyRaelin_0
+  - first:
+      213: -3938714001793676751
+    second: DummyRaelin_1
+  - first:
+      213: 4807971709010189280
+    second: DummyRaelin_2
+  - first:
+      213: 3915264197467408181
+    second: DummyRaelin_3
+  - first:
+      213: 529227851868273345
+    second: DummyRaelin_4
+  - first:
+      213: 6527108244643208404
+    second: DummyRaelin_5
+  - first:
+      213: -6622751772733735534
+    second: DummyRaelin_6
+  - first:
+      213: -4448298911965284280
+    second: DummyRaelin_7
+  - first:
+      213: 5122425404483380742
+    second: DummyRaelin_8
+  - first:
+      213: 6934556536195965049
+    second: DummyRaelin_9
+  - first:
+      213: -3407456559823412656
+    second: DummyRaelin_10
+  - first:
+      213: -4595780650652515375
+    second: DummyRaelin_11
+  - first:
+      213: 6150406459924264927
+    second: DummyRaelin_12
+  - first:
+      213: -2554749073240882313
+    second: DummyRaelin_13
+  - first:
+      213: 6632152274795895393
+    second: DummyRaelin_14
+  - first:
+      213: -878468267666005844
+    second: DummyRaelin_15
+  - first:
+      213: -3302311647181917145
+    second: DummyRaelin_16
+  - first:
+      213: -2943071555639561211
+    second: DummyRaelin_17
+  - first:
+      213: -5520601741912054146
+    second: DummyRaelin_18
+  - first:
+      213: -6905308138201241273
+    second: DummyRaelin_19
+  - first:
+      213: 6554636770285977246
+    second: DummyRaelin_20
+  - first:
+      213: 3109354374422422298
+    second: DummyRaelin_21
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DummyRaelin_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 7957
+        width: 478
+        height: 718
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 0, z: 2, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff4627dc50a85ae47817619a0f77ec14
+      internalID: -1749215140685771453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_1
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 7961
+        width: 474
+        height: 713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 998ca712264f9204d8f6a8667869ffb3
+      internalID: -3938714001793676751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 7235
+        width: 478
+        height: 716
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c941baf87c3f4d04b819a7303e794e94
+      internalID: 4807971709010189280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_3
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 7235
+        width: 477
+        height: 718
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4697595ebdcabef4c85b2b54fe43ba33
+      internalID: 3915264197467408181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 6511
+        width: 478
+        height: 718
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f4127821ca9474ca91d136dbee3cbb
+      internalID: 529227851868273345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_5
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 6511
+        width: 478
+        height: 718
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5593b34c6690e14ab46506690e1d1b6
+      internalID: 6527108244643208404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_6
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 5789
+        width: 478
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbbd3b654a62ce84da24c48eab8965f7
+      internalID: -6622751772733735534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_7
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 5789
+        width: 478
+        height: 718
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec26f6fc3c7e46408c18bb3e72b03de
+      internalID: -4448298911965284280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 5065
+        width: 478
+        height: 717
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c6344f5e03864d479abe14862086478
+      internalID: 5122425404483380742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_9
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 5065
+        width: 478
+        height: 717
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98855db37574df74aa87e686153e0b87
+      internalID: 6934556536195965049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4337
+        width: 478
+        height: 723
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f60171c5be525249bee98eca2b752a2
+      internalID: -3407456559823412656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_11
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 4337
+        width: 478
+        height: 723
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b78a8cb03a4a734ca6fade3627f1467
+      internalID: -4595780650652515375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 3620
+        width: 478
+        height: 711
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad94db1908fef54bb44b48c84b7a1aa
+      internalID: 6150406459924264927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_13
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 3620
+        width: 478
+        height: 711
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09861806a71e4e24580f8e6761d747c9
+      internalID: -2554749073240882313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_14
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2896
+        width: 478
+        height: 718
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 399360f135cc39c4bb0e39a7336b25d0
+      internalID: 6632152274795895393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_15
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 2896
+        width: 478
+        height: 725
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70466a05021c3545b4a2179baa113c7
+      internalID: -878468267666005844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2174
+        width: 478
+        height: 717
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dbc7eee9ba5b294dbd5690a5ab8ba42
+      internalID: -3302311647181917145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_17
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 2174
+        width: 478
+        height: 717
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608f92fef40247646989f46d34d7fe4c
+      internalID: -2943071555639561211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_18
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1450
+        width: 478
+        height: 718
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 930091d54d8248647b4ac0338c5d4fb8
+      internalID: -5520601741912054146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_19
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 1450
+        width: 478
+        height: 718
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8cf0fa977dc4243b22ee546750c600
+      internalID: -6905308138201241273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_20
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 727
+        width: 478
+        height: 717
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a92decc5ff1c16489d49c7e6493a034
+      internalID: 6554636770285977246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DummyRaelin_21
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 727
+        width: 477
+        height: 717
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ce495837bcc0fb4197cb14a75caa61c
+      internalID: 3109354374422422298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 05fa8bbbdbd8fe24791f5e793b90232c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
