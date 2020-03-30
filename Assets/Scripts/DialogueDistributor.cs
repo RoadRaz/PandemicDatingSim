@@ -68,11 +68,11 @@ public class DialogueDistributor : MonoBehaviour
                 "What fun activities can we do in quarantine?"
             },
             { // ID: 1
-                "Cheeeese!", "", "", ""
+                "This is the second part of our opening conversation, with only one text box!", "", "", ""
             },
             { // ID: 2
-                "sadasd",
-                "asdasdas", "", ""
+                "This is a 'randomly-selected' bit of dialogue",
+                "It will repeat every single time you complete this scenario!", "", ""
             }
         };
 

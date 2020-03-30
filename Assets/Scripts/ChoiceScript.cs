@@ -54,7 +54,6 @@ public class ChoiceScript : MonoBehaviour
     // Button 1 invokes this
     public void ChoiceOption1()
     {
-        gameObject.GetComponent<PlayManager>().currentTextIndex = choiceTextIndex1;
         choiceMade = 1;
         choiceCompleted = true;
     }
@@ -62,7 +61,6 @@ public class ChoiceScript : MonoBehaviour
     // Button 2 invokes this
     public void ChoiceOption2()
     {
-        gameObject.GetComponent<PlayManager>().currentTextIndex = choiceTextIndex2;
         choiceMade = 2;
         choiceCompleted = true;
     }
@@ -70,29 +68,8 @@ public class ChoiceScript : MonoBehaviour
     // Button 3 invokes this
     public void ChoiceOption3()
     {
-        gameObject.GetComponent<PlayManager>().currentTextIndex = choiceTextIndex3;
         choiceMade = 3;
         choiceCompleted = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // Do things depending on choice made
-
-        /*if(choiceMade == 1)
-        {
-            SetChoiceText("Further option #1", "Further option #2", "Further option #3");
-            // can set choice text index here as well 
-        }
-        if (choiceMade == 2)
-        {
-            SetChoiceText("Further option #1", "Further option #2", "Further option #3");
-        }
-        if (choiceMade == 3)
-        {
-            SetChoiceText("Further option #1", "Further option #2", "Further option #3");
-        }*/
     }
 
     public void ResetChoice()
@@ -103,11 +80,4 @@ public class ChoiceScript : MonoBehaviour
 
         choiceCompleted = false;
     }
-
-    /*void SetChoiceText(string choice01, string choice02, string choice03)
-    {
-        this.choice01.GetComponentsInChildren<Text>()[0].text = choice01;
-        this.choice02.GetComponentsInChildren<Text>()[0].text = choice02;
-        this.choice03.GetComponentsInChildren<Text>()[0].text = choice03;
-    }*/
 }

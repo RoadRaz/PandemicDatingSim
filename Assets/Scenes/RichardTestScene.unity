@@ -505,10 +505,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6eca63350c1d34b828d366de1bbdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueText: {fileID: 354075196}
   choice01: {fileID: 1900677994}
   choice02: {fileID: 665213544}
   choice03: {fileID: 1645176779}
+  choiceMade: 0
   choiceCompleted: 0
 --- !u!114 &759630243
 MonoBehaviour:
@@ -522,9 +522,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8001b3e681354704993f1da0922affd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenarioID: 0
   romanceValue: 0
-  statusValue: Normal
+  statusValue: 1
+  scenarioID: 0
 --- !u!114 &759630244
 MonoBehaviour:
   m_ObjectHideFlags: 0
