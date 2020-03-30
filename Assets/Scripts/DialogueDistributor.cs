@@ -18,8 +18,8 @@ public class DialogueDistributor : MonoBehaviour
     [HideInInspector]
     public string[,] masterChoices;
 
-    // Start is called before the first frame update
-    void Start()
+    // Start is called before the first frame update . . . but apparently we need Awake for this one
+    void Awake()
     {
         scenarioID = 0;
 

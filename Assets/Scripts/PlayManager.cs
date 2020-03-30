@@ -24,6 +24,7 @@ public class PlayManager : MonoBehaviour
     void Start()
     {
         dialogue = GameObject.Find("DialogueText");
+        textToDisplay = new string[theDialogue.masterText.GetLength(1)];
         for (int i = 0; i < theDialogue.masterText.GetLength(1); i++)
         {
             textToDisplay[i] = theDialogue.masterText[theDialogue.scenarioID, i];
@@ -43,6 +44,14 @@ public class PlayManager : MonoBehaviour
                 dialogue.GetComponent<Text>().text = textToDisplay[currentTextIndex];
                 currentWritingIndex = textToDisplay[currentTextIndex].Length;
                 currentDialogueState = DialogueState.Done;
+
+                // Display the choices when at a choice point
+                if (theDialogue.thereAreChoices[theDialogue.scenarioID, currentTextIndex])
+                {
+                    theChoices.PrepareChoice(theDialogue.masterChoices[theDialogue.scenarioID, 0],
+                        theDialogue.masterChoices[theDialogue.scenarioID, 1],
+                        theDialogue.masterChoices[theDialogue.scenarioID, 2]);
+                }
             }
             else if (currentDialogueState == DialogueState.Done && !theDialogue.thereAreChoices[theDialogue.scenarioID, currentTextIndex])
             {
@@ -68,6 +77,14 @@ public class PlayManager : MonoBehaviour
                 else
                 {
                     currentDialogueState = DialogueState.Done;
+
+                // Display the choices when at a choice point
+                if (theDialogue.thereAreChoices[theDialogue.scenarioID, currentTextIndex])
+                {
+                    theChoices.PrepareChoice(theDialogue.masterChoices[theDialogue.scenarioID, 0],
+                        theDialogue.masterChoices[theDialogue.scenarioID, 1],
+                        theDialogue.masterChoices[theDialogue.scenarioID, 2]);
+                }
                 }
             }
             lastCharacterWrite = Time.timeSinceLevelLoad;
