@@ -19,11 +19,16 @@ public class PlayManager : MonoBehaviour
     float lastCharacterWrite = 0;
 
     GameObject dialogue;
+    GameObject romanceText;
+    GameObject statusText;
+
     string[] textToDisplay;
 
     void Start()
     {
         dialogue = GameObject.Find("DialogueText");
+        romanceText = GameObject.Find("Romance");
+        statusText = GameObject.Find("Status");
         textToDisplay = new string[theDialogue.masterText.GetLength(1)];
         for (int i = 0; i < theDialogue.masterText.GetLength(1); i++)
         {
@@ -31,10 +36,15 @@ public class PlayManager : MonoBehaviour
         }
         currentDialogueState = DialogueState.Writing;
     }
-
+    void SetUIVariables() 
+    {
+        romanceText.GetComponent<Text>().text = "Romance: " + this.gameObject.GetComponent<DialogueDistributor>().romanceValue;
+        statusText.GetComponent<Text>().text = "Status: " + this.gameObject.GetComponent<DialogueDistributor>().statusValue;
+    }
     // Update is called once per frame
     void Update()
     {
+        SetUIVariables();
         // Hitting enter either skips the gradual typing of text or goes to the next dialogue
         if (Input.GetKeyDown(KeyCode.Return))
         {

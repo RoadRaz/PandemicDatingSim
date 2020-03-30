@@ -18,6 +18,10 @@ public class DialogueDistributor : MonoBehaviour
     [HideInInspector]
     public string[,] masterChoices;
 
+    //Temp variables
+    public int romanceValue = 0;
+    public string statusValue = "Normal";
+
     // Start is called before the first frame update . . . but apparently we need Awake for this one
     void Awake()
     {
