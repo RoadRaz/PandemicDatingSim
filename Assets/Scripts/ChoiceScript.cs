@@ -30,7 +30,7 @@ public class ChoiceScript : MonoBehaviour
     // Button 1 invokes this
     public void ChoiceOption1()
     {
-        gameObject.GetComponent<DialogueManager>().currentTextIndex = choiceTextIndex1;
+        gameObject.GetComponent<PlayManager>().currentTextIndex = choiceTextIndex1;
         choiceMade = 1;
         choiceCompleted = true;
     }
@@ -38,7 +38,7 @@ public class ChoiceScript : MonoBehaviour
     // Button 2 invokes this
     public void ChoiceOption2()
     {
-        gameObject.GetComponent<DialogueManager>().currentTextIndex = choiceTextIndex2;
+        gameObject.GetComponent<PlayManager>().currentTextIndex = choiceTextIndex2;
         choiceMade = 2;
         choiceCompleted = true;
     }
@@ -46,7 +46,7 @@ public class ChoiceScript : MonoBehaviour
     // Button 3 invokes this
     public void ChoiceOption3()
     {
-        gameObject.GetComponent<DialogueManager>().currentTextIndex = choiceTextIndex3;
+        gameObject.GetComponent<PlayManager>().currentTextIndex = choiceTextIndex3;
         choiceMade = 3;
         choiceCompleted = true;
     }
