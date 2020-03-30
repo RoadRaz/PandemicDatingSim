@@ -18,9 +18,32 @@ public class ChoiceScript : MonoBehaviour
 
     public void Start()
     {
-        choice01.GetComponentsInChildren<Text>()[0].text = "Likewise! What are you interested in?";
-        choice02.GetComponentsInChildren<Text>()[0].text = "Fantastic! I am excited too!";
-        choice03.GetComponentsInChildren<Text>()[0].text = "We will have to think of something cool to do together!";
+        choice01.SetActive(false);
+        choice02.SetActive(false);
+        choice03.SetActive(false);
+
+        choiceTextIndex1 = 0;
+        choiceTextIndex2 = 1;
+        choiceTextIndex3 = 2;
+    }
+
+    public void PrepareChoice(string inputChoice1, string inputChoice2, string inputChoice3)
+    {
+        if (inputChoice1 != "")
+        {
+            choice01.SetActive(true);
+            choice01.GetComponentsInChildren<Text>()[0].text = inputChoice1;
+        }
+        if (inputChoice2 != "")
+        {
+            choice02.SetActive(true);
+            choice02.GetComponentsInChildren<Text>()[0].text = inputChoice2;
+        }
+        if (inputChoice3 != "")
+        {
+            choice03.SetActive(true);
+            choice03.GetComponentsInChildren<Text>()[0].text = inputChoice3;
+        }
 
         choiceTextIndex1 = 0;
         choiceTextIndex2 = 1;
@@ -30,7 +53,7 @@ public class ChoiceScript : MonoBehaviour
     // Button 1 invokes this
     public void ChoiceOption1()
     {
-        gameObject.GetComponent<DialogueManager>().currentTextIndex = choiceTextIndex1;
+        gameObject.GetComponent<PlayManager>().currentTextIndex = choiceTextIndex1;
         choiceMade = 1;
         choiceCompleted = true;
     }
@@ -38,7 +61,7 @@ public class ChoiceScript : MonoBehaviour
     // Button 2 invokes this
     public void ChoiceOption2()
     {
-        gameObject.GetComponent<DialogueManager>().currentTextIndex = choiceTextIndex2;
+        gameObject.GetComponent<PlayManager>().currentTextIndex = choiceTextIndex2;
         choiceMade = 2;
         choiceCompleted = true;
     }
@@ -46,7 +69,7 @@ public class ChoiceScript : MonoBehaviour
     // Button 3 invokes this
     public void ChoiceOption3()
     {
-        gameObject.GetComponent<DialogueManager>().currentTextIndex = choiceTextIndex3;
+        gameObject.GetComponent<PlayManager>().currentTextIndex = choiceTextIndex3;
         choiceMade = 3;
         choiceCompleted = true;
     }
