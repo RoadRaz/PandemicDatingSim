@@ -9,7 +9,8 @@ public class ChoiceScript : MonoBehaviour
     public GameObject choice01;
     public GameObject choice02;
     public GameObject choice03;
-    int choiceMade = 0;
+    [HideInInspector]
+    public int choiceMade = 0;
     public bool choiceCompleted = false;
 
     int choiceTextIndex1;

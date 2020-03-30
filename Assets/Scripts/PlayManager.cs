@@ -21,7 +21,7 @@ public class PlayManager : MonoBehaviour
     GameObject dialogue;
     GameObject romanceText;
     GameObject statusText;
-
+    
     string[] textToDisplay;
 
     void Start()
@@ -36,10 +36,17 @@ public class PlayManager : MonoBehaviour
         }
         currentDialogueState = DialogueState.Writing;
     }
-    void SetUIVariables() 
+    void SetUIVariables()
     {
         romanceText.GetComponent<Text>().text = "Romance: " + this.gameObject.GetComponent<DialogueDistributor>().romanceValue;
-        statusText.GetComponent<Text>().text = "Status: " + this.gameObject.GetComponent<DialogueDistributor>().statusValue;
+        if (this.gameObject.GetComponent<DialogueDistributor>().statusValue == DialogueDistributor.PartnerStatus.Normal)
+        {
+            statusText.GetComponent<Text>().text = "Status: ---- ";
+        }
+        else
+        {
+            statusText.GetComponent<Text>().text = "Status: " + this.gameObject.GetComponent<DialogueDistributor>().statusValue;
+        }
     }
     // Update is called once per frame
     void Update()
