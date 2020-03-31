@@ -1,15 +1,16 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ChoiceScript : MonoBehaviour
 {
-    public GameObject dialogueText;
     public GameObject choice01;
     public GameObject choice02;
     public GameObject choice03;
-    int choiceMade = 0;
+    [HideInInspector]
+    public int choiceMade = 0;
+    [HideInInspector]
     public bool choiceCompleted = false;
 
     int choiceTextIndex1;
@@ -53,7 +54,6 @@ public class ChoiceScript : MonoBehaviour
     // Button 1 invokes this
     public void ChoiceOption1()
     {
-        gameObject.GetComponent<PlayManager>().currentTextIndex = choiceTextIndex1;
         choiceMade = 1;
         choiceCompleted = true;
     }
@@ -61,7 +61,6 @@ public class ChoiceScript : MonoBehaviour
     // Button 2 invokes this
     public void ChoiceOption2()
     {
-        gameObject.GetComponent<PlayManager>().currentTextIndex = choiceTextIndex2;
         choiceMade = 2;
         choiceCompleted = true;
     }
@@ -69,42 +68,20 @@ public class ChoiceScript : MonoBehaviour
     // Button 3 invokes this
     public void ChoiceOption3()
     {
-        gameObject.GetComponent<PlayManager>().currentTextIndex = choiceTextIndex3;
         choiceMade = 3;
         choiceCompleted = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Do things depending on choice made
-
-        if(choiceMade == 1)
-        {
-            SetChoiceText("Further option #1", "Further option #2", "Further option #3");
-            // can set choice text index here as well 
-        }
-        if (choiceMade == 2)
-        {
-            SetChoiceText("Further option #1", "Further option #2", "Further option #3");
-        }
-        if (choiceMade == 3)
-        {
-            SetChoiceText("Further option #1", "Further option #2", "Further option #3");
-        }
-    }
-
-    void ResetChoiceText()
+    public void ResetChoice()
     {
         choice01.GetComponentsInChildren<Text>()[0].text = "";
         choice02.GetComponentsInChildren<Text>()[0].text = "";
         choice03.GetComponentsInChildren<Text>()[0].text = "";
-    }
 
-    void SetChoiceText(string choice01, string choice02, string choice03)
-    {
-        this.choice01.GetComponentsInChildren<Text>()[0].text = choice01;
-        this.choice02.GetComponentsInChildren<Text>()[0].text = choice02;
-        this.choice03.GetComponentsInChildren<Text>()[0].text = choice03;
+        choice01.SetActive(false);
+        choice02.SetActive(false);
+        choice03.SetActive(false);
+
+        choiceCompleted = false;
     }
 }
