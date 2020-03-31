@@ -26,13 +26,14 @@ public class PlayManager : MonoBehaviour
     
     string[] textToDisplay;
     int[] emotionToDisplay;
-
+    GameObject data;
     // Start is called before the first frame update
     void Start()
     {
         dialogue = GameObject.Find("DialogueText");
         romanceText = GameObject.Find("Romance");
         statusText = GameObject.Find("Status");
+        data = GameObject.Find("SAVEDDATA");
         textToDisplay = new string[theDialogue.masterText.GetLength(1)];
         emotionToDisplay = new int[theDialogue.masterText.GetLength(1)];
 
@@ -43,6 +44,11 @@ public class PlayManager : MonoBehaviour
         }
         currentDialogueState = DialogueState.Writing;
         currentBackAndForthState = BackAndForthState.Dialogue;
+
+        if (data.GetComponent<DataHolding>().lastMiniGameResult != -1) 
+        {
+            changeScenario();
+        }
     }
 
     void SetUIVariables()
@@ -104,12 +110,13 @@ public class PlayManager : MonoBehaviour
                 else if (currentBackAndForthState == BackAndForthState.Consequence && theDialogue.goesToMinigame[theDialogue.scenarioID, currentTextIndex])
                 {
                     // Cut out and go to minigame if appropriate
-
+                    goToMiniGame();
                 }
                 else if (currentBackAndForthState == BackAndForthState.Consequence && !theDialogue.goesToMinigame[theDialogue.scenarioID, currentTextIndex])
                 {
                     // If at the end of consequence text, go to the next scenario
                     changeScenario();
+                    goToMiniGame();
                 }
             }
 
@@ -204,13 +211,12 @@ public class PlayManager : MonoBehaviour
     }
     public void goToMiniGame()
     {
-        GameObject data = GameObject.Find("SAVEDATA");
         if (data) 
         {
             data.GetComponent<DataHolding>().romanceVal = theDialogue.romanceValue;
             data.GetComponent<DataHolding>().statusVal = theDialogue.statusValue;
             data.GetComponent<DataHolding>().ID = theDialogue.scenarioID;
         }
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("MiniGame");
     }
 }
