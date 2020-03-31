@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -74,6 +74,10 @@ public class ChoiceScript : MonoBehaviour
 
     public void ResetChoice()
     {
+        choice01.GetComponentsInChildren<Text>()[0].text = "";
+        choice02.GetComponentsInChildren<Text>()[0].text = "";
+        choice03.GetComponentsInChildren<Text>()[0].text = "";
+
         choice01.SetActive(false);
         choice02.SetActive(false);
         choice03.SetActive(false);

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +24,7 @@ public class PlayManager : MonoBehaviour
     GameObject statusText;
     
     string[] textToDisplay;
+    int[] emotionToDisplay;
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +33,12 @@ public class PlayManager : MonoBehaviour
         romanceText = GameObject.Find("Romance");
         statusText = GameObject.Find("Status");
         textToDisplay = new string[theDialogue.masterText.GetLength(1)];
+        emotionToDisplay = new int[theDialogue.masterText.GetLength(1)];
+
         for (int i = 0; i < theDialogue.masterText.GetLength(1); i++)
         {
             textToDisplay[i] = theDialogue.masterText[theDialogue.scenarioID, i];
+            emotionToDisplay[i] = (int)theDialogue.emotionByText[theDialogue.scenarioID, i];
         }
         currentDialogueState = DialogueState.Writing;
         currentBackAndForthState = BackAndForthState.Dialogue;
@@ -84,7 +88,11 @@ public class PlayManager : MonoBehaviour
             else if (currentDialogueState == DialogueState.Done)
             {
                 // Advance to the next bit of text, unless circumstances demand otherwise
-                if (currentBackAndForthState == BackAndForthState.Dialogue && !theDialogue.thereAreChoices[theDialogue.scenarioID, currentTextIndex])
+                if (currentBackAndForthState == BackAndForthState.Dialogue && theDialogue.thereAreChoices[theDialogue.scenarioID, currentTextIndex])
+                {
+                    // If currently on a choice point, hitting enter does nothing, and this script waits for the word in the Update() function
+                }
+                else if (currentBackAndForthState == BackAndForthState.Dialogue && !theDialogue.thereAreChoices[theDialogue.scenarioID, currentTextIndex])
                 {
                     // So long as there's more to display, display it
                     currentTextIndex++;
@@ -92,18 +100,16 @@ public class PlayManager : MonoBehaviour
                     dialogue.GetComponent<Text>().text = "";
                     currentDialogueState = DialogueState.Writing;
                 }
-                else if (currentBackAndForthState == BackAndForthState.Consequence && !theDialogue.goesToMinigame[theDialogue.scenarioID, currentTextIndex])
-                {
-                    // If at the end of consequence text, go to the next scenario
-                    changeScenario();
-                }
                 else if (currentBackAndForthState == BackAndForthState.Consequence && theDialogue.goesToMinigame[theDialogue.scenarioID, currentTextIndex])
                 {
                     // Cut out and go to minigame if appropriate
 
                 }
-                // If currently on a choice point, hitting enter does nothing, and this script waits for the word in the Update() function
-                
+                else if (currentBackAndForthState == BackAndForthState.Consequence && !theDialogue.goesToMinigame[theDialogue.scenarioID, currentTextIndex])
+                {
+                    // If at the end of consequence text, go to the next scenario
+                    changeScenario();
+                }
             }
 
         }
@@ -123,7 +129,7 @@ public class PlayManager : MonoBehaviour
                     currentDialogueState = DialogueState.Done;
 
                 // Display the choices when at a choice point
-                if (theDialogue.thereAreChoices[theDialogue.scenarioID, currentTextIndex])
+                if (currentBackAndForthState == BackAndForthState.Dialogue && theDialogue.thereAreChoices[theDialogue.scenarioID, currentTextIndex])
                 {
                     theChoices.PrepareChoice(theDialogue.masterChoices[theDialogue.scenarioID, 0],
                         theDialogue.masterChoices[theDialogue.scenarioID, 1],
