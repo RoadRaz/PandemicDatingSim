@@ -13,19 +13,11 @@ public class ChoiceScript : MonoBehaviour
     [HideInInspector]
     public bool choiceCompleted = false;
 
-    int choiceTextIndex1;
-    int choiceTextIndex2;
-    int choiceTextIndex3;
-
     public void Start()
     {
         choice01.SetActive(false);
         choice02.SetActive(false);
         choice03.SetActive(false);
-
-        choiceTextIndex1 = 0;
-        choiceTextIndex2 = 1;
-        choiceTextIndex3 = 2;
     }
 
     public void PrepareChoice(string inputChoice1, string inputChoice2, string inputChoice3)
@@ -45,10 +37,6 @@ public class ChoiceScript : MonoBehaviour
             choice03.SetActive(true);
             choice03.GetComponentsInChildren<Text>()[0].text = inputChoice3;
         }
-
-        choiceTextIndex1 = 0;
-        choiceTextIndex2 = 1;
-        choiceTextIndex3 = 2;
     }
 
     // Button 1 invokes this

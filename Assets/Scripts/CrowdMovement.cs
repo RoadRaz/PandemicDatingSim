@@ -14,7 +14,7 @@ public class CrowdMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Random "movement" for crowd member to have them moving all over the space
-        gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-800, 800), Random.Range(-800, 800)) * Time.deltaTime);
+        gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-500, 500), Random.Range(-500, 500)) * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
