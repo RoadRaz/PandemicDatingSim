@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class PlayManager : MonoBehaviour
 {
     enum DialogueState { Off, Writing, Done }
@@ -201,5 +201,16 @@ public class PlayManager : MonoBehaviour
         }
         currentDialogueState = DialogueState.Writing;
         currentBackAndForthState = BackAndForthState.Dialogue;
+    }
+    public void goToMiniGame()
+    {
+        GameObject data = GameObject.Find("SAVEDATA");
+        if (data) 
+        {
+            data.GetComponent<DataHolding>().romanceVal = theDialogue.romanceValue;
+            data.GetComponent<DataHolding>().statusVal = theDialogue.statusValue;
+            data.GetComponent<DataHolding>().ID = theDialogue.scenarioID;
+        }
+        SceneManager.LoadScene("");
     }
 }
