@@ -109,7 +109,6 @@ public class PlayManager : MonoBehaviour
                 {
                     // If at the end of consequence text, go to the next scenario
                     changeScenario();
-                    goToMiniGame();
                 }
             }
 

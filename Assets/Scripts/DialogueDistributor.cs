@@ -82,35 +82,50 @@ public class DialogueDistributor : MonoBehaviour
             },
             { // ID: 2
                 "This is a 'randomly-selected' bit of dialogue",
-                "It will repeat half of the times you complete this scenario!", "", ""
+                "It is nonsense put in here to test interactions!", "", ""
             },
             { // ID: 3
                 "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "It is nonsense put in here to test interactions!", "", ""
             },
             { // ID: 4
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "Scenario: Suddenly, crowd minigame!",
+                "Tons of ill-coordinated people with no respect for healthy distance get in your way",
+                "I mean, I've got a mask and I'm made of pixels. I'm fine. But can you keep yourself safe?",
+                "No actual consequences for now; just try!"
             },
             { // ID: 5
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "Scenario: Boring afternoon",
+                "There's nothing to do, so how I react to your choice depends heavily on current \"Status\"", "", ""
             },
             { // ID: 6
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "Scenario: Urgent phone call",
+                "I just found out from my parents that somebody important got sick", "", ""
             },
             { // ID: 7
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "Scenario: Late night phone call",
+                "There's no one else for conversation, so how I react to your choice depends heavily on current \"Status\"", "", ""
             },
             { // ID: 8
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "Scenario: Resource management",
+                "With people hoarding, what in the world are we supposed to do if we run out of toilet paper?", "", ""
             },
             { // ID: 9
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "Scenario: Hobby chitchat",
+                "A simple check for matching interests and raising the \"Romance\" stat", "", ""
+            },
+            { // ID: 10
+                "Scenario: Outdoors chitchat",
+                "A simple check for matching interests and raising the \"Romance\" stat", "", ""
+            },
+            { // ID: 11
+                "Scenario: Shopping plans",
+                "Store hours and availability are changing every week!",
+                "It's like I need to watch them like a hawk to do normal shopping! Or should I quit it and look online?", ""
+            },
+            { // ID: 12
+                "Scenario: Health and planning activities",
+                "Too much sitting around, and the only social stuff is to take walks. Tell me you have some plans!", "", ""
             }
         };
 
@@ -134,6 +149,45 @@ public class DialogueDistributor : MonoBehaviour
             { // ID: 3
                 PartnerEmotion.Cry,
                 PartnerEmotion.Angry, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 4
+                PartnerEmotion.Mask,
+                PartnerEmotion.Mask,
+                PartnerEmotion.Mask,
+                PartnerEmotion.Mask
+            },
+            { // ID: 5
+                PartnerEmotion.Normal,
+                PartnerEmotion.Normal, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 6
+                PartnerEmotion.Normal,
+                PartnerEmotion.Cry, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 7
+                PartnerEmotion.Normal,
+                PartnerEmotion.Normal, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 8
+                PartnerEmotion.Normal,
+                PartnerEmotion.Angry, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 9
+                PartnerEmotion.Normal,
+                PartnerEmotion.Happy, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 10
+                PartnerEmotion.Normal,
+                PartnerEmotion.Happy, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 11
+                PartnerEmotion.Normal,
+                PartnerEmotion.Angry,
+                PartnerEmotion.Normal, PartnerEmotion.Error
+            },
+            { // ID: 12
+                PartnerEmotion.Normal,
+                PartnerEmotion.Angry, PartnerEmotion.Error, PartnerEmotion.Error
             }
         };
 
@@ -155,6 +209,51 @@ public class DialogueDistributor : MonoBehaviour
             },
             { // ID: 3
                 "Nematode forever",
+                "",
+                ""
+            },
+            { // ID: 4
+                "Bring on the crowds!",
+                "",
+                ""
+            },
+            { // ID: 5
+                "",
+                "",
+                ""
+            },
+            { // ID: 6
+                "",
+                "",
+                ""
+            },
+            { // ID: 7
+                "",
+                "",
+                ""
+            },
+            { // ID: 8
+                "",
+                "",
+                ""
+            },
+            { // ID: 9
+                "",
+                "",
+                ""
+            },
+            { // ID: 10
+                "",
+                "",
+                ""
+            },
+            { // ID: 11
+                "",
+                "",
+                ""
+            },
+            { // ID: 12
+                "",
                 "",
                 ""
             }
@@ -180,9 +279,14 @@ public class DialogueDistributor : MonoBehaviour
                 { "And here I was hoping for something as reckless as me!", "Your nematodes are highly consistent", "At least I am not alone with the nematodes"},
                 { "", "", "" },
                 { "", "", "" }
+            },
+            { // ID: 4
+                { "", "Use WASD to avoid the infected dots until time is up!", ""},
+                { "", "", "" },
+                { "", "", "" }
             }
         };
-
+        
         consequenceEmotionByText = new PartnerEmotion[,,] {
             { // ID: 0
                 { PartnerEmotion.Error, PartnerEmotion.Happy, PartnerEmotion.Error },
