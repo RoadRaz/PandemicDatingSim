@@ -81,36 +81,52 @@ public class DialogueDistributor : MonoBehaviour
                 "And watch out for the minigame!!!"
             },
             { // ID: 2
-                "This is a 'randomly-selected' bit of dialogue",
-                "It will repeat half of the times you complete this scenario!", "", ""
+                "This is a \"randomly-selected\" bit of dialogue",
+                "It is nonsense put in here to test and prompt \"status\" interactions!", "", ""
             },
             { // ID: 3
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "This dialog is \"selected at random\"",
+                "It is nonsense put in here to test and clear \"status\" interactions!", "", ""
             },
             { // ID: 4
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "Scenario: Suddenly, crowd minigame!",
+                "Tons of ill-coordinated people with no respect for healthy distance get in your way",
+                "I mean, I've got a mask and I'm made of pixels. I'm fine. But can you keep yourself safe?",
+                "No actual consequences for now; just try!"
             },
             { // ID: 5
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "Scenario: Boring afternoon",
+                "There's nothing to do, so how I react to your choice depends heavily on current \"Status\"", "", ""
             },
             { // ID: 6
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "Scenario: Urgent phone call",
+                "I just found out from my parents that somebody got sick", "", ""
             },
             { // ID: 7
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "Scenario: Late night phone call",
+                "There's no one else for conversation, so how I react to your choice depends heavily on current \"Status\"", "", ""
             },
             { // ID: 8
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "Scenario: Resource management",
+                "With people hoarding, what in the world are we supposed to do if we run out of toilet paper?", "", ""
             },
             { // ID: 9
-                "This dialog is 'selected at random'",
-                "Get used to hearing it!", "", ""
+                "Scenario: Hobby chitchat",
+                "A simple check for matching interests and raising the \"Romance\" stat", "", ""
+            },
+            { // ID: 10
+                "Scenario: Outdoors chitchat",
+                "A simple check for matching interests and raising the \"Romance\" stat", "", ""
+            },
+            { // ID: 11
+                "Scenario: Shopping plans",
+                "Store hours and availability are changing every week!",
+                "It's like I need to watch them like a hawk to do normal shopping! Or should I quit it and look online?", ""
+            },
+            { // ID: 12
+                "Scenario: Health and planning activities",
+                "Too much sitting around. So I guess it makes sense that the only social stuff is taking walks!",
+                "Where should we go?", ""
             }
         };
 
@@ -133,6 +149,45 @@ public class DialogueDistributor : MonoBehaviour
             },
             { // ID: 3
                 PartnerEmotion.Cry,
+                PartnerEmotion.Angry, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 4
+                PartnerEmotion.Mask,
+                PartnerEmotion.Mask,
+                PartnerEmotion.Mask,
+                PartnerEmotion.Mask
+            },
+            { // ID: 5
+                PartnerEmotion.Normal,
+                PartnerEmotion.Normal, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 6
+                PartnerEmotion.Normal,
+                PartnerEmotion.Cry, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 7
+                PartnerEmotion.Normal,
+                PartnerEmotion.Normal, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 8
+                PartnerEmotion.Normal,
+                PartnerEmotion.Angry, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 9
+                PartnerEmotion.Normal,
+                PartnerEmotion.Happy, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 10
+                PartnerEmotion.Normal,
+                PartnerEmotion.Happy, PartnerEmotion.Error, PartnerEmotion.Error
+            },
+            { // ID: 11
+                PartnerEmotion.Normal,
+                PartnerEmotion.Angry,
+                PartnerEmotion.Normal, PartnerEmotion.Error
+            },
+            { // ID: 12
+                PartnerEmotion.Normal,
                 PartnerEmotion.Angry, PartnerEmotion.Error, PartnerEmotion.Error
             }
         };
@@ -157,6 +212,51 @@ public class DialogueDistributor : MonoBehaviour
                 "Nematode forever",
                 "",
                 ""
+            },
+            { // ID: 4
+                "Bring on the crowds!",
+                "",
+                ""
+            },
+            { // ID: 5
+                "Safe choice, but a little better in \"Status\": Lonely",
+                "Good choice when Reckless, bad choice when Antisocial",
+                "Good choice when Scared, bad choice when Impatient"
+            },
+            { // ID: 6
+                "Good choice, but bad in \"Status\": Lonely",
+                "Safe choice",
+                "Good choice, better when Scared"
+            },
+            { // ID: 7
+                "Good choice in \"Status\": Antisocial, bad when Lonely",
+                "Safe choice, but not as good when Impatient",
+                "Good choice when Scared, bad choice when Reckless"
+            },
+            { // ID: 8
+                "Safe choice",
+                "Safe choice, but a little better in \"Status\": Reckless",
+                "Safe choice, but a bad choice when Impatient"
+            },
+            { // ID: 9
+                "Safe choice",
+                "Better choice",
+                "Safe choice, but a little better in \"Status\": Lonely"
+            },
+            { // ID: 10
+                "Bad choice, but a little better in \"Status\": Antisocial",
+                "Safe choice",
+                "Better choice"
+            },
+            { // ID: 11
+                "Good choice in \"Status\": Antisocial, bad when Lonely",
+                "Good choice when Reckless, bad choice when Scared",
+                ""
+            },
+            { // ID: 12
+                "Safe choice, but a little better in \"Status\": Impatient",
+                "Good choice when Reckless, bad choice when Scared",
+                "Bad choice unless Scared"
             }
         };
 
@@ -180,9 +280,54 @@ public class DialogueDistributor : MonoBehaviour
                 { "And here I was hoping for something as reckless as me!", "Your nematodes are highly consistent", "At least I am not alone with the nematodes"},
                 { "", "", "" },
                 { "", "", "" }
+            },
+            { // ID: 4
+                { "", "Use WASD to avoid the infected dots until time is up!", ""},
+                { "", "", "" },
+                { "", "", "" }
+            },
+            { // ID: 5
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]"},
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" },
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" }
+            },
+            { // ID: 6
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]"},
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" },
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" }
+            },
+            { // ID: 7
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]"},
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" },
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" }
+            },
+            { // ID: 8
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]"},
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" },
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" }
+            },
+            { // ID: 9
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]"},
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" },
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" }
+            },
+            { // ID: 10
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]"},
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" },
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" }
+            },
+            { // ID: 11
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]"},
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" },
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" }
+            },
+            { // ID: 12
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]"},
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" },
+                { "[Bad consequences]", "[Consequences]", "[Good consequences]" }
             }
         };
-
+        
         consequenceEmotionByText = new PartnerEmotion[,,] {
             { // ID: 0
                 { PartnerEmotion.Error, PartnerEmotion.Happy, PartnerEmotion.Error },
@@ -203,6 +348,51 @@ public class DialogueDistributor : MonoBehaviour
                 { PartnerEmotion.Angry, PartnerEmotion.Angry, PartnerEmotion.Angry },
                 { PartnerEmotion.Error, PartnerEmotion.Error, PartnerEmotion.Error },
                 { PartnerEmotion.Error, PartnerEmotion.Error, PartnerEmotion.Error }
+            },
+            { // ID: 4
+                { PartnerEmotion.Error, PartnerEmotion.Mask, PartnerEmotion.Error },
+                { PartnerEmotion.Error, PartnerEmotion.Error, PartnerEmotion.Error },
+                { PartnerEmotion.Error, PartnerEmotion.Error, PartnerEmotion.Error }
+            },
+            { // ID: 5
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy }
+            },
+            { // ID: 6
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy }
+            },
+            { // ID: 7
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy }
+            },
+            { // ID: 8
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy }
+            },
+            { // ID: 9
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy }
+            },
+            { // ID: 10
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy }
+            },
+            { // ID: 11
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy }
+            },
+            { // ID: 12
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy },
+                { PartnerEmotion.Cry, PartnerEmotion.Normal, PartnerEmotion.Happy }
             }
         };
 
@@ -226,6 +416,51 @@ public class DialogueDistributor : MonoBehaviour
                 { -10, 5, 10 },
                 { 0, 0, 0 },
                 { 0, 0, 0 }
+            },
+            { // ID: 4
+                { 0, 0, 0 },
+                { 0, 0, 0 },
+                { 0, 0, 0 }
+            },
+            { // ID: 5
+                { 0, 5, 10 },
+                { -15, 0, 15 },
+                { -15, 0, 15 }
+            },
+            { // ID: 6
+                { -20, 10, 0 },
+                { 0, 5, 0 },
+                { 0, 5, 15 }
+            },
+            { // ID: 7
+                { -20, 0, 10 },
+                { 0, 5, 0 },
+                { -10, 0, 15 }
+            },
+            { // ID: 8
+                { 0, 5, 0 },
+                { 0, 5, 10 },
+                { -10, 5, 0 }
+            },
+            { // ID: 9
+                { 0, 5, 0 },
+                { 0, 10, 0 },
+                { 0, 5, 15 }
+            },
+            { // ID: 10
+                { 0, 5, 15 },
+                { 0, 5, 0 },
+                { 0, 10, 0 }
+            },
+            { // ID: 11
+                { -20, 0, 15 },
+                { -20, 0, 10 },
+                { 0, 0, 0 }
+            },
+            { // ID: 12
+                { 0, 5, 10 },
+                { -20, 0, 10 },
+                { 0, -5, 15 }
             }
         };
 
@@ -249,6 +484,51 @@ public class DialogueDistributor : MonoBehaviour
                 { PartnerStatus.Normal, PartnerStatus.Normal, PartnerStatus.Normal },
                 { PartnerStatus.Error, PartnerStatus.Error, PartnerStatus.Error },
                 { PartnerStatus.Error, PartnerStatus.Error, PartnerStatus.Error }
+            },
+            { // ID: 4
+                { PartnerStatus.Error, PartnerStatus.Normal, PartnerStatus.Error },
+                { PartnerStatus.Error, PartnerStatus.Error, PartnerStatus.Error },
+                { PartnerStatus.Error, PartnerStatus.Error, PartnerStatus.Error }
+            },
+            { // ID: 5 ----- Normal, Impatient, Scared, Lonely, Antisocial, Reckless
+                { PartnerStatus.Error, PartnerStatus.Lonely, PartnerStatus.Normal },
+                { PartnerStatus.Impatient, PartnerStatus.Scared, PartnerStatus.Normal },
+                { PartnerStatus.Antisocial, PartnerStatus.Normal, PartnerStatus.Normal }
+            },
+            { // ID: 6
+                { PartnerStatus.Antisocial, PartnerStatus.Scared, PartnerStatus.Error },
+                { PartnerStatus.Error, PartnerStatus.Impatient, PartnerStatus.Error },
+                { PartnerStatus.Error, PartnerStatus.Normal, PartnerStatus.Lonely }
+            },
+            { // ID: 7
+                { PartnerStatus.Scared, PartnerStatus.Reckless, PartnerStatus.Normal },
+                { PartnerStatus.Antisocial, PartnerStatus.Normal, PartnerStatus.Error },
+                { PartnerStatus.Normal, PartnerStatus.Reckless, PartnerStatus.Normal }
+            },
+            { // ID: 8
+                { PartnerStatus.Error, PartnerStatus.Normal, PartnerStatus.Error },
+                { PartnerStatus.Error, PartnerStatus.Antisocial, PartnerStatus.Reckless },
+                { PartnerStatus.Lonely, PartnerStatus.Normal, PartnerStatus.Error }
+            },
+            { // ID: 9
+                { PartnerStatus.Error, PartnerStatus.Lonely, PartnerStatus.Error },
+                { PartnerStatus.Error, PartnerStatus.Reckless, PartnerStatus.Error },
+                { PartnerStatus.Error, PartnerStatus.Normal, PartnerStatus.Normal }
+            },
+            { // ID: 10
+                { PartnerStatus.Error, PartnerStatus.Reckless, PartnerStatus.Antisocial },
+                { PartnerStatus.Error, PartnerStatus.Scared, PartnerStatus.Error },
+                { PartnerStatus.Error, PartnerStatus.Normal, PartnerStatus.Error }
+            },
+            { // ID: 11
+                { PartnerStatus.Lonely, PartnerStatus.Normal, PartnerStatus.Impatient },
+                { PartnerStatus.Normal, PartnerStatus.Reckless, PartnerStatus.Normal },
+                { PartnerStatus.Error, PartnerStatus.Error, PartnerStatus.Error }
+            },
+            { // ID: 12
+                { PartnerStatus.Error, PartnerStatus.Normal, PartnerStatus.Lonely },
+                { PartnerStatus.Scared, PartnerStatus.Antisocial, PartnerStatus.Normal },
+                { PartnerStatus.Error, PartnerStatus.Scared, PartnerStatus.Impatient }
             }
         };
 
@@ -271,6 +551,51 @@ public class DialogueDistributor : MonoBehaviour
             { // ID: 3
                 PartnerStatus.Reckless,
                 PartnerStatus.Error,
+                PartnerStatus.Error
+            },
+            { // ID: 4
+                PartnerStatus.Error,
+                PartnerStatus.Error,
+                PartnerStatus.Error
+            },
+            { // ID: 5
+                PartnerStatus.Error,
+                PartnerStatus.Antisocial,
+                PartnerStatus.Impatient
+            },
+            { // ID: 6
+                PartnerStatus.Lonely,
+                PartnerStatus.Error,
+                PartnerStatus.Error
+            },
+            { // ID: 7
+                PartnerStatus.Lonely,
+                PartnerStatus.Impatient,
+                PartnerStatus.Reckless
+            },
+            { // ID: 8
+                PartnerStatus.Error,
+                PartnerStatus.Error,
+                PartnerStatus.Impatient
+            },
+            { // ID: 9
+                PartnerStatus.Error,
+                PartnerStatus.Error,
+                PartnerStatus.Error
+            },
+            { // ID: 10
+                PartnerStatus.Error,
+                PartnerStatus.Error,
+                PartnerStatus.Error
+            },
+            { // ID: 11
+                PartnerStatus.Lonely,
+                PartnerStatus.Scared,
+                PartnerStatus.Error
+            },
+            { // ID: 12
+                PartnerStatus.Error,
+                PartnerStatus.Scared,
                 PartnerStatus.Error
             }
         };
@@ -295,6 +620,51 @@ public class DialogueDistributor : MonoBehaviour
                 PartnerStatus.Lonely,
                 PartnerStatus.Error,
                 PartnerStatus.Error
+            },
+            { // ID: 4
+                PartnerStatus.Error,
+                PartnerStatus.Error,
+                PartnerStatus.Error
+            },
+            { // ID: 5
+                PartnerStatus.Lonely,
+                PartnerStatus.Reckless,
+                PartnerStatus.Scared
+            },
+            { // ID: 6
+                PartnerStatus.Error,
+                PartnerStatus.Error,
+                PartnerStatus.Scared
+            },
+            { // ID: 7
+                PartnerStatus.Antisocial,
+                PartnerStatus.Error,
+                PartnerStatus.Scared
+            },
+            { // ID: 8
+                PartnerStatus.Error,
+                PartnerStatus.Reckless,
+                PartnerStatus.Error
+            },
+            { // ID: 9
+                PartnerStatus.Error,
+                PartnerStatus.Error,
+                PartnerStatus.Lonely
+            },
+            { // ID: 10
+                PartnerStatus.Antisocial,
+                PartnerStatus.Error,
+                PartnerStatus.Error
+            },
+            { // ID: 11
+                PartnerStatus.Antisocial,
+                PartnerStatus.Reckless,
+                PartnerStatus.Error
+            },
+            { // ID: 12
+                PartnerStatus.Impatient,
+                PartnerStatus.Reckless,
+                PartnerStatus.Scared
             }
         };
 
@@ -315,6 +685,51 @@ public class DialogueDistributor : MonoBehaviour
                 false
             },
             { // ID: 3
+                false,
+                false,
+                false
+            },
+            { // ID: 4
+                true,
+                false,
+                false
+            },
+            { // ID: 5
+                false,
+                false,
+                false
+            },
+            { // ID: 6
+                false,
+                false,
+                false
+            },
+            { // ID: 7
+                false,
+                false,
+                false
+            },
+            { // ID: 8
+                false,
+                false,
+                false
+            },
+            { // ID: 9
+                false,
+                false,
+                false
+            },
+            { // ID: 10
+                false,
+                false,
+                false
+            },
+            { // ID: 11
+                false,
+                false,
+                false
+            },
+            { // ID: 12
                 false,
                 false,
                 false
