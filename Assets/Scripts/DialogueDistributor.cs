@@ -10,6 +10,7 @@ public class DialogueDistributor : MonoBehaviour
     public PartnerStatus statusValue = PartnerStatus.Normal;
     public enum PartnerEmotion { Error, Normal, Mask, Angry, Cry, Happy }
 
+    GameObject data;
     /* Each scenarioID indicates a whole scene, and it is the first index used when calling the arrays
     masterText[scenarioID, ] contains 1 or more strings to print as boxes of dialogue, ending with "" when it's out of text
     emotionByText[scenarioID, ] contains emotion to display for the romantic partner with those boxes
@@ -58,7 +59,13 @@ public class DialogueDistributor : MonoBehaviour
     // Start is called before the first frame update . . . but apparently we need Awake for this one
     void Awake()
     {
-        scenarioID = 0;
+        data = GameObject.Find("SAVEDDATA");
+        if (data)
+        {
+            statusValue = data.GetComponent<DataHolding>().statusVal;
+            romanceValue = data.GetComponent<DataHolding>().romanceVal;
+            scenarioID = data.GetComponent<DataHolding>().ID;
+        }
 
         masterText = new string[,] {
             { // ID: 0

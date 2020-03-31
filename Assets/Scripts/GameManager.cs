@@ -12,10 +12,13 @@ public class GameManager : MonoBehaviour
 
     float timeLeft;
 
+    GameObject data;
+    
     // Start is called before the first frame update
     void Start()
     {
-        timeLeft = 60.0f;
+        timeLeft = 30.0f;
+        data = GameObject.Find("SAVEDDATA");
     }
 
     // Update is called once per frame
@@ -31,12 +34,21 @@ public class GameManager : MonoBehaviour
 
             if(player.tag == "Player")
             {
+                if (data) 
+                {
+                    data.GetComponent<DataHolding>().lastMiniGameResult = 1;
+                }
                 PlayerPrefs.SetInt("MiniGame Result", 1);
             }
             else
             {
+                if (data)
+                {
+                    data.GetComponent<DataHolding>().lastMiniGameResult = 0;
+                }
                 PlayerPrefs.SetInt("MiniGame Result", 0);
             }
+            SceneManager.LoadScene("DavidTestScene");
         }
     }
 }
