@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class PlayManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    enum DialogueState {Off, Writing, Done}
+    enum DialogueState { Off, Writing, Done }
     DialogueState currentDialogueState = DialogueState.Off;
+    enum BackAndForthState { Off, Dialogue, Consequence }
+    BackAndForthState currentBackAndForthState = BackAndForthState.Off;
     public DialogueDistributor theDialogue;
     public ChoiceScript theChoices;
 
@@ -21,9 +22,10 @@ public class PlayManager : MonoBehaviour
     GameObject dialogue;
     GameObject romanceText;
     GameObject statusText;
-
+    
     string[] textToDisplay;
 
+    // Start is called before the first frame update
     void Start()
     {
         dialogue = GameObject.Find("DialogueText");
@@ -35,16 +37,32 @@ public class PlayManager : MonoBehaviour
             textToDisplay[i] = theDialogue.masterText[theDialogue.scenarioID, i];
         }
         currentDialogueState = DialogueState.Writing;
+        currentBackAndForthState = BackAndForthState.Dialogue;
     }
-    void SetUIVariables() 
+
+    void SetUIVariables()
     {
-        romanceText.GetComponent<Text>().text = "Romance: " + this.gameObject.GetComponent<DialogueDistributor>().romanceValue;
-        statusText.GetComponent<Text>().text = "Status: " + this.gameObject.GetComponent<DialogueDistributor>().statusValue;
+        romanceText.GetComponent<Text>().text = "Romance: " + theDialogue.romanceValue;
+        if (theDialogue.statusValue == DialogueDistributor.PartnerStatus.Normal)
+        {
+            statusText.GetComponent<Text>().text = "Status: ---- ";
+        }
+        else
+        {
+            statusText.GetComponent<Text>().text = "Status: " + theDialogue.statusValue;
+        }
     }
+
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("scenarioID: " + theDialogue.scenarioID);
+        Debug.Log("thereAreChoices: " + theDialogue.thereAreChoices[theDialogue.scenarioID, currentTextIndex]);
+        Debug.Log("currentDialogueState: " + currentDialogueState);
+        Debug.Log("currentBackAndForthState: " + currentBackAndForthState);
+
         SetUIVariables();
+
         // Hitting enter either skips the gradual typing of text or goes to the next dialogue
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -63,13 +81,29 @@ public class PlayManager : MonoBehaviour
                         theDialogue.masterChoices[theDialogue.scenarioID, 2]);
                 }
             }
-            else if (currentDialogueState == DialogueState.Done && !theDialogue.thereAreChoices[theDialogue.scenarioID, currentTextIndex])
+            else if (currentDialogueState == DialogueState.Done)
             {
-                // Advance to the next bit of text, unless currently on a choice point
-                currentTextIndex++;
-                currentWritingIndex = 0;
-                dialogue.GetComponent<Text>().text = "";
-                currentDialogueState = DialogueState.Writing;
+                // Advance to the next bit of text, unless circumstances demand otherwise
+                if (currentBackAndForthState == BackAndForthState.Dialogue && !theDialogue.thereAreChoices[theDialogue.scenarioID, currentTextIndex])
+                {
+                    // So long as there's more to display, display it
+                    currentTextIndex++;
+                    currentWritingIndex = 0;
+                    dialogue.GetComponent<Text>().text = "";
+                    currentDialogueState = DialogueState.Writing;
+                }
+                else if (currentBackAndForthState == BackAndForthState.Consequence && !theDialogue.goesToMinigame[theDialogue.scenarioID, currentTextIndex])
+                {
+                    // If at the end of consequence text, go to the next scenario
+                    changeScenario();
+                }
+                else if (currentBackAndForthState == BackAndForthState.Consequence && theDialogue.goesToMinigame[theDialogue.scenarioID, currentTextIndex])
+                {
+                    // Cut out and go to minigame if appropriate
+
+                }
+                // If currently on a choice point, hitting enter does nothing, and this script waits for the word in the Update() function
+                
             }
 
         }
@@ -100,28 +134,65 @@ public class PlayManager : MonoBehaviour
             lastCharacterWrite = Time.timeSinceLevelLoad;
         }
 
-        // Choice code is to be updated
-        if (gameObject.GetComponent<ChoiceScript>().choiceCompleted)
+        if (currentBackAndForthState == BackAndForthState.Dialogue && theChoices.choiceCompleted)
         {
-            if (currentDialogueState == DialogueState.Writing)
+            // Go back to the start of the dialogue print sequence, preparing to fill with consequence text
+            currentTextIndex = 0;
+            currentWritingIndex = 0;
+            dialogue.GetComponent<Text>().text = "";
+
+            // Check if the choice was bad or good based on current status, then update all variables and status
+            if (theDialogue.badConsequenceTriggers[theDialogue.scenarioID, theChoices.choiceMade - 1] == theDialogue.statusValue)
             {
-                dialogue.GetComponent<Text>().text = textToDisplay[currentTextIndex];
-                currentDialogueState = DialogueState.Done;
+                theDialogue.romanceValue += theDialogue.consequenceRomance[theDialogue.scenarioID, theChoices.choiceMade - 1, (int)DialogueDistributor.Modifier.Bad];
+                theDialogue.statusValue = theDialogue.consequenceStatus[theDialogue.scenarioID, theChoices.choiceMade - 1, (int)DialogueDistributor.Modifier.Bad];
+                textToDisplay[0] = theDialogue.consequenceText[theDialogue.scenarioID, theChoices.choiceMade - 1, (int)DialogueDistributor.Modifier.Bad];
             }
-            else if (currentDialogueState == DialogueState.Done)
+            else if (theDialogue.goodConsequenceTriggers[theDialogue.scenarioID, theChoices.choiceMade - 1] == theDialogue.statusValue)
             {
-                //go to next text field (or next state)
-                currentTextIndex++;
-                currentWritingIndex = 0;
-                dialogue.GetComponent<Text>().text = "";
-                lastCharacterWrite = 0;
-                currentDialogueState = DialogueState.Writing;
-
-
-                gameObject.GetComponent<ChoiceScript>().choiceCompleted = false;
+                theDialogue.romanceValue += theDialogue.consequenceRomance[theDialogue.scenarioID, theChoices.choiceMade - 1, (int)DialogueDistributor.Modifier.Good];
+                theDialogue.statusValue = theDialogue.consequenceStatus[theDialogue.scenarioID, theChoices.choiceMade - 1, (int)DialogueDistributor.Modifier.Good];
+                textToDisplay[0] = theDialogue.consequenceText[theDialogue.scenarioID, theChoices.choiceMade - 1, (int)DialogueDistributor.Modifier.Good];
+            }
+            else
+            {
+                theDialogue.romanceValue += theDialogue.consequenceRomance[theDialogue.scenarioID, theChoices.choiceMade - 1, (int)DialogueDistributor.Modifier.Neutral];
+                theDialogue.statusValue = theDialogue.consequenceStatus[theDialogue.scenarioID, theChoices.choiceMade - 1, (int)DialogueDistributor.Modifier.Neutral];
+                textToDisplay[0] = theDialogue.consequenceText[theDialogue.scenarioID, theChoices.choiceMade - 1, (int)DialogueDistributor.Modifier.Neutral];
             }
 
+            // Move to the next stage in the back-and-forth
+            currentDialogueState = DialogueState.Writing;
+            currentBackAndForthState = BackAndForthState.Consequence;
+
+            theChoices.ResetChoice();
+        }
+    }
+
+    private void changeScenario()
+    {
+        // Just as with initial setup, go to the start of the dialogue print sequence
+        currentTextIndex = 0;
+        currentWritingIndex = 0;
+        dialogue.GetComponent<Text>().text = "";
+
+        // Change the scenario
+        if (theDialogue.scenarioID == 0)
+        {
+            // The only linked events are ScenarioID 0 followed by 1, while all others are randomized
+            theDialogue.scenarioID = 1;
+        }
+        else
+        {
+            theDialogue.scenarioID = Random.Range(2, theDialogue.masterText.GetLength(0));
         }
 
+        // Fill with the new text and move to the next stage in the back-and-forth
+        for (int i = 0; i < theDialogue.masterText.GetLength(1); i++)
+        {
+            textToDisplay[i] = theDialogue.masterText[theDialogue.scenarioID, i];
+        }
+        currentDialogueState = DialogueState.Writing;
+        currentBackAndForthState = BackAndForthState.Dialogue;
     }
 }
