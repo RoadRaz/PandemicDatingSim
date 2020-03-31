@@ -7,8 +7,9 @@ public class PlayManager : MonoBehaviour
 {
     enum DialogueState { Off, Writing, Done }
     DialogueState currentDialogueState = DialogueState.Off;
-    enum BackAndForthState { Off, Dialogue, Consequence }
-    BackAndForthState currentBackAndForthState = BackAndForthState.Off;
+    public enum BackAndForthState { Off, Dialogue, Consequence }
+    [HideInInspector]
+    public BackAndForthState currentBackAndForthState = BackAndForthState.Off;
     public DialogueDistributor theDialogue;
     public ChoiceScript theChoices;
 

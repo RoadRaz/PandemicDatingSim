@@ -536,6 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7eefbba6bc0a946910bd9634dc283f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentBackAndForthState: 0
   theDialogue: {fileID: 759630243}
   theChoices: {fileID: 759630242}
   currentTextIndex: 0
@@ -793,7 +794,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22, y: 40.4}
+  m_AnchoredPosition: {x: 7, y: 27}
   m_SizeDelta: {x: 250, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1417005612
@@ -816,7 +817,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -870,7 +871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22, y: 92.2}
+  m_AnchoredPosition: {x: 7, y: 78.79997}
   m_SizeDelta: {x: 250, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1598827463
@@ -893,7 +894,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1495,14 +1496,14 @@ RectTransform:
   m_GameObject: {fileID: 2007161579}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 326.0208}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 1098492994}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.00625, y: 0.8483291}
   m_AnchorMax: {x: 0.1357083, y: 0.99100006}
-  m_AnchoredPosition: {x: -21.7, y: 68.9}
+  m_AnchoredPosition: {x: 46, y: 50}
   m_SizeDelta: {x: 254.4, y: 117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2007161581
