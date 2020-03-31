@@ -25,8 +25,8 @@ public class PlayManager : MonoBehaviour
     GameObject statusText;
     
     string[] textToDisplay;
-    int[] emotionToDisplay;
     GameObject data;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,12 +35,10 @@ public class PlayManager : MonoBehaviour
         statusText = GameObject.Find("Status");
         data = GameObject.Find("SAVEDDATA");
         textToDisplay = new string[theDialogue.masterText.GetLength(1)];
-        emotionToDisplay = new int[theDialogue.masterText.GetLength(1)];
 
         for (int i = 0; i < theDialogue.masterText.GetLength(1); i++)
         {
             textToDisplay[i] = theDialogue.masterText[theDialogue.scenarioID, i];
-            emotionToDisplay[i] = (int)theDialogue.emotionByText[theDialogue.scenarioID, i];
         }
         currentDialogueState = DialogueState.Writing;
         currentBackAndForthState = BackAndForthState.Dialogue;
@@ -67,11 +65,6 @@ public class PlayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("scenarioID: " + theDialogue.scenarioID);
-        Debug.Log("thereAreChoices: " + theDialogue.thereAreChoices[theDialogue.scenarioID, currentTextIndex]);
-        Debug.Log("currentDialogueState: " + currentDialogueState);
-        Debug.Log("currentBackAndForthState: " + currentBackAndForthState);
-
         SetUIVariables();
 
         // Hitting enter either skips the gradual typing of text or goes to the next dialogue

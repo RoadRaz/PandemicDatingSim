@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
                 }
                 PlayerPrefs.SetInt("MiniGame Result", 0);
             }
-            SceneManager.LoadScene("DavidTestScene");
+            SceneManager.LoadScene("MainScene");
         }
     }
 }

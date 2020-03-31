@@ -75,13 +75,40 @@ public class DialogueDistributor : MonoBehaviour
                 "What fun activities can we do in quarantine?"
             },
             { // ID: 1
-                "This is the second part of our opening conversation, with only one text box!", "", "", ""
+                "Well, from here on out, there will be a lot of randomly-selected scenarios with placeholder text",
+                "There is no actual end or goal in sight!",
+                "Just be sure to click your choice instead of hitting \"return\", since keyboard input is a little off",
+                "And watch out for the minigame!!!"
             },
             { // ID: 2
                 "This is a 'randomly-selected' bit of dialogue",
                 "It will repeat half of the times you complete this scenario!", "", ""
             },
             { // ID: 3
+                "This dialog is 'selected at random'",
+                "Get used to hearing it!", "", ""
+            },
+            { // ID: 4
+                "This dialog is 'selected at random'",
+                "Get used to hearing it!", "", ""
+            },
+            { // ID: 5
+                "This dialog is 'selected at random'",
+                "Get used to hearing it!", "", ""
+            },
+            { // ID: 6
+                "This dialog is 'selected at random'",
+                "Get used to hearing it!", "", ""
+            },
+            { // ID: 7
+                "This dialog is 'selected at random'",
+                "Get used to hearing it!", "", ""
+            },
+            { // ID: 8
+                "This dialog is 'selected at random'",
+                "Get used to hearing it!", "", ""
+            },
+            { // ID: 9
                 "This dialog is 'selected at random'",
                 "Get used to hearing it!", "", ""
             }
@@ -95,7 +122,10 @@ public class DialogueDistributor : MonoBehaviour
                 PartnerEmotion.Normal
             },
             { // ID: 1
-                PartnerEmotion.Mask, PartnerEmotion.Error, PartnerEmotion.Error, PartnerEmotion.Error
+                PartnerEmotion.Normal,
+                PartnerEmotion.Normal,
+                PartnerEmotion.Happy,
+                PartnerEmotion.Angry
             },
             { // ID: 2
                 PartnerEmotion.Angry,
@@ -160,9 +190,9 @@ public class DialogueDistributor : MonoBehaviour
                 { PartnerEmotion.Error, PartnerEmotion.Normal, PartnerEmotion.Error }
             },
             { // ID: 1
-                { PartnerEmotion.Error, PartnerEmotion.Mask, PartnerEmotion.Error },
-                { PartnerEmotion.Error, PartnerEmotion.Mask, PartnerEmotion.Error },
-                { PartnerEmotion.Error, PartnerEmotion.Mask, PartnerEmotion.Error }
+                { PartnerEmotion.Error, PartnerEmotion.Happy, PartnerEmotion.Error },
+                { PartnerEmotion.Error, PartnerEmotion.Happy, PartnerEmotion.Error },
+                { PartnerEmotion.Error, PartnerEmotion.Happy, PartnerEmotion.Error }
             },
             { // ID: 2
                 { PartnerEmotion.Cry, PartnerEmotion.Cry, PartnerEmotion.Cry },
@@ -183,9 +213,9 @@ public class DialogueDistributor : MonoBehaviour
                 { 0, 50, 0 }
             },
             { // ID: 1
-                { 0, 10, 0 },
-                { 0, 0, 0 },
-                { 0, 0, 0 }
+                { 0, 5, 0 },
+                { 0, 5, 0 },
+                { 0, 5, 0 }
             },
             { // ID: 2
                 { -5, 5, 10 },
